@@ -1,5 +1,4 @@
 <?php 
-session_start();
 require_once 'includes/auth_validate.php';
 require_once './config/config.php';
 $del_id = filter_input(INPUT_POST, 'del_id');
