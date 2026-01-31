@@ -1,10 +1,14 @@
 <?php
 
-//If User is logged in the session['user_logged_in'] will be set to true
-
-//if user is Not Logged in, redirect to login.php page.
-if (!isset($_SESSION['user_logged_in'])) {
-	header('Location:login.php');
+// Start session if not already started
+if (session_status() === PHP_SESSION_NONE) {
+	session_start();
 }
 
- ?>
+// If user is not logged in, redirect to login page
+if (!isset($_SESSION['user_logged_in']) || $_SESSION['user_logged_in'] !== true) {
+	header('Location: login.php', true, 302);
+	exit;
+}
+
+?>
