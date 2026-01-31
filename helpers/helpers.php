@@ -118,6 +118,9 @@ function paginationLinks($current_page, $total_pages, $base_url) {
  * to prevent xss
  */
 function xss_clean($string){
+    if ($string === null || $string === '') {
+        return '';
+    }
     return htmlspecialchars($string, ENT_QUOTES, 'UTF-8');
 
 }
